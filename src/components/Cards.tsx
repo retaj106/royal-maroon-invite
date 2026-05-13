@@ -283,8 +283,6 @@ export function Cards() {
                     </span>
                     <span className="font-semibold">تأكيد الحضور</span>
                   </button>
-
-                  </button>
                 </form>
               ) : (
                 <motion.div
