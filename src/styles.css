@@ -33,8 +33,9 @@
   --color-gold-soft: var(--gold-soft);
   --color-paper: var(--paper);
   --color-paper-warm: var(--paper-warm);
-  --font-arabic: 'Amiri', 'Aref Ruqaa', serif;
-  --font-arabic-display: 'Aref Ruqaa', 'Amiri', serif;
+  --font-arabic: 'Markazi Text', 'Amiri', serif;
+  --font-arabic-display: 'Aref Ruqaa Ink', 'Aref Ruqaa', 'Gulzar', serif;
+  --font-arabic-script: 'Gulzar', 'Mirza', serif;
   --font-serif: 'Cormorant Garamond', serif;
 }
 
