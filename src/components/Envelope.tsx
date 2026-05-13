@@ -130,32 +130,34 @@ export function Envelope({ onOpen }: Props) {
             }}
           />
 
-          {/* Arabic calligraphy "ق & د" — gold embossed */}
+          {/* Arabic calligraphy "ق & د" — gold embossed, royal monogram */}
           <div
-            className="absolute inset-0 flex items-center justify-center font-arabic-display"
+            className="absolute inset-0 flex items-center justify-center"
             style={{
+              fontFamily: "'Aref Ruqaa Ink', 'Gulzar', 'Mirza', serif",
               textShadow:
-                "0 1px 0 oklch(0.95 0.10 88 / 0.6), 0 -1px 1px oklch(0.15 0.06 18 / 0.7), 0 2px 3px oklch(0.10 0.05 18 / 0.6)",
+                "0 1px 0 oklch(0.96 0.10 88 / 0.7), 0 -1px 1px oklch(0.15 0.06 18 / 0.75), 0 2px 4px oklch(0.10 0.05 18 / 0.7)",
             }}
           >
             <span
-              className="flex items-baseline gap-[0.08em] animate-shimmer"
+              className="flex items-baseline gap-[0.05em] animate-shimmer"
               style={{
-                fontSize: "min(13vh, 4.6rem)",
+                fontSize: "min(15vh, 5.4rem)",
                 lineHeight: 1,
+                fontWeight: 700,
                 background:
-                  "linear-gradient(135deg, oklch(0.96 0.10 88) 0%, oklch(0.78 0.14 78) 45%, oklch(0.96 0.10 88) 100%)",
+                  "linear-gradient(135deg, oklch(0.97 0.10 88) 0%, oklch(0.74 0.15 76) 50%, oklch(0.97 0.10 88) 100%)",
                 backgroundSize: "200% 200%",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 color: "transparent",
                 filter:
-                  "drop-shadow(0 1px 0 oklch(0.18 0.08 18 / 0.55)) drop-shadow(0 0 6px oklch(0.85 0.12 80 / 0.35))",
+                  "drop-shadow(0 1px 0 oklch(0.18 0.08 18 / 0.6)) drop-shadow(0 0 8px oklch(0.85 0.12 80 / 0.45))",
               }}
             >
               <span>ق</span>
-              <span style={{ fontSize: "0.55em", opacity: 0.85 }}>&amp;</span>
+              <span style={{ fontSize: "0.5em", opacity: 0.85, fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}>&amp;</span>
               <span>د</span>
             </span>
           </div>
