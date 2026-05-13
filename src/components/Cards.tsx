@@ -66,7 +66,7 @@ function TulipCorner({ className = "", flip = false }: { className?: string; fli
         <path d="M0 35 Q-18 0 0 -34 Q18 0 0 35 Z"
               fill={`url(#petal-${uid})`}
               stroke="oklch(0.65 0.04 70 / 0.45)" strokeWidth="0.6"/>
-        <path d="M-2 -25 Q-7 0 -2 27" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.65"/>
+        <path d="M-2 -25 Q-7 0 -2 27" stroke="oklch(0.97 0.012 80)" strokeWidth="1" fill="none" opacity="0.65"/>
       </g>
 
       {/* THIRD bud — small */}
