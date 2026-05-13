@@ -22,11 +22,7 @@ export function Envelope({ onOpen }: Props) {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, oklch(0.22 0.09 18) 0%, oklch(0.12 0.05 18) 100%)",
-      }}
+      className="fixed inset-0 flex items-center justify-center overflow-hidden bg-burgundy-damask"
     >
       {/* ambient gold glow */}
       <div
