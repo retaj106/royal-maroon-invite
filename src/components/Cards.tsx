@@ -253,7 +253,7 @@ export function Cards() {
             <span>✦</span>
             <span className="h-px w-20 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
           </div>
-          <p className="mt-4 font-arabic-display text-gold/70 text-lg">قاسم & دانة</p>
+          <p className="mt-4 font-arabic-display text-gold/70 text-lg">قيس & دانة</p>
         </motion.div>
       </div>
     </div>
