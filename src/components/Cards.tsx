@@ -182,28 +182,31 @@ export function Cards() {
         >
           <FloralPaper className="min-h-[420px]">
             <div className="px-8 sm:px-12 py-14 flex flex-col items-center justify-center text-center">
-              <div className="text-gold/80 text-xs tracking-[0.4em] mb-4">ملاحظة كريمة</div>
+              <div className="font-cairo text-brown-gold text-[11px] tracking-[0.5em] mb-5 uppercase">ملاحظة كريمة</div>
               <SectionDivider />
-              <p className="font-arabic text-burgundy-deep text-lg sm:text-xl leading-loose max-w-md">
-                نعتذر بلطف عن استقبال الأطفال،<br/>
-                شاكرين تفهّمكم ومشاركتكم فرحتنا 🤍
+              <p className="font-cairo text-burgundy-deep text-base sm:text-lg leading-[2.1] max-w-md font-medium">
+                نَعتذر بلُطف عن استقبال الأطفَال،<br/>
+                شاكرين تفهّمكم ومُشاركتكُم فرحتنا 🤍
               </p>
               <SectionDivider />
 
               <a
                 href="https://maps.app.goo.gl/CKzzVxLxTthghXRN6"
                 target="_blank" rel="noreferrer"
-                className="group mt-2 inline-flex items-center gap-3 px-8 py-4 rounded-full font-arabic text-paper transition-all hover:scale-105 bg-burgundy-damask-btn"
+                className="group mt-2 inline-flex items-center gap-3 px-10 py-4 rounded-full font-cairo text-paper transition-all hover:scale-105"
                 style={{
-                  boxShadow: "0 8px 24px oklch(0.24 0.10 18 / 0.4), inset 0 1px 0 oklch(0.85 0.12 80 / 0.3)",
-                  border: "1px solid oklch(0.78 0.12 80 / 0.4)",
+                  background: "linear-gradient(135deg, oklch(0.32 0.12 18) 0%, oklch(0.24 0.10 18) 100%)",
+                  boxShadow: "0 10px 28px oklch(0.20 0.10 18 / 0.5), inset 0 1px 0 oklch(0.85 0.12 80 / 0.25)",
+                  border: "1px solid oklch(0.78 0.12 80 / 0.45)",
                 }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold-soft">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span className="tracking-wider">عرض موقع القاعة</span>
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full" style={{ border: "1px solid oklch(0.82 0.12 82 / 0.7)" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="text-gold-soft">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </span>
+                <span className="tracking-wider text-sm sm:text-base font-semibold">عرض موقع القاعة</span>
               </a>
             </div>
           </FloralPaper>
@@ -218,46 +221,69 @@ export function Cards() {
         >
           <FloralPaper className="min-h-[480px]">
             <div className="px-6 sm:px-12 py-14 flex flex-col items-center text-center">
-              <div className="text-gold/80 text-xs tracking-[0.4em] mb-3">تأكيد الحضور</div>
-              <h2 className="font-arabic-display text-4xl sm:text-5xl text-burgundy-deep leading-tight">
-                نتشرّف بحضوركم
-              </h2>
+              <div className="font-cairo text-brown-gold text-[11px] tracking-[0.5em] mb-5 uppercase">تأكيد الحضور</div>
               <SectionDivider />
 
               {!submitted ? (
                 <form
                   onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-                  className="w-full max-w-sm space-y-4 mt-2"
+                  className="w-full max-w-sm space-y-5 mt-2"
                 >
                   <div className="text-right">
-                    <label className="block text-xs text-burgundy/70 mb-2 tracking-wider">الاسم الكامل</label>
-                    <input
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="اكتب اسمك الكريم"
-                      className="w-full px-5 py-3 rounded-full bg-paper/60 backdrop-blur-sm border border-gold/30 text-burgundy-deep font-arabic placeholder:text-burgundy/30 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
-                    />
+                    <label className="block text-xs text-brown-gold mb-2 tracking-[0.25em] font-cairo font-semibold">الاسم الكامل</label>
+                    <div className="relative">
+                      <input
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="اكتب اسمك الكامل"
+                        className="w-full pr-5 pl-14 py-3.5 rounded-full font-cairo text-burgundy-deep placeholder:text-burgundy/30 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all"
+                        style={{ background: "oklch(0.97 0.015 80)", border: "1px solid oklch(0.78 0.06 75 / 0.5)" }}
+                      />
+                      <span className="absolute left-2 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-9 h-9 rounded-full"
+                            style={{ background: "linear-gradient(135deg, oklch(0.32 0.12 18), oklch(0.24 0.10 18))" }}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.85 0.10 80)" strokeWidth="2">
+                          <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                   <div className="text-right">
-                    <label className="block text-xs text-burgundy/70 mb-2 tracking-wider">عدد الحضور</label>
-                    <input
-                      required type="number" min={1} max={10}
-                      value={guests}
-                      onChange={(e) => setGuests(e.target.value)}
-                      placeholder="مثال: 2"
-                      className="w-full px-5 py-3 rounded-full bg-paper/60 backdrop-blur-sm border border-gold/30 text-burgundy-deep font-arabic placeholder:text-burgundy/30 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
-                    />
+                    <label className="block text-xs text-brown-gold mb-2 tracking-[0.25em] font-cairo font-semibold">عدد الحضور</label>
+                    <div className="relative">
+                      <input
+                        required type="number" min={1} max={10}
+                        value={guests}
+                        onChange={(e) => setGuests(e.target.value)}
+                        placeholder="اختر عدد الحضور"
+                        className="w-full pr-5 pl-14 py-3.5 rounded-full font-cairo text-burgundy-deep placeholder:text-burgundy/30 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all"
+                        style={{ background: "oklch(0.97 0.015 80)", border: "1px solid oklch(0.78 0.06 75 / 0.5)" }}
+                      />
+                      <span className="absolute left-2 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-9 h-9 rounded-full"
+                            style={{ background: "linear-gradient(135deg, oklch(0.32 0.12 18), oklch(0.24 0.10 18))" }}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.85 0.10 80)" strokeWidth="2">
+                          <circle cx="9" cy="8" r="3.5"/><circle cx="16" cy="9" r="2.8"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M14 20c0-2.5 2-4.5 5-4.5s5 2 5 4.5"/>
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                   <button
                     type="submit"
-                    className="w-full mt-6 py-4 rounded-full font-arabic text-paper tracking-wider transition-all hover:scale-[1.02] active:scale-[0.99] bg-burgundy-damask-btn"
+                    className="w-full mt-6 py-4 rounded-full font-cairo text-paper tracking-wider transition-all hover:scale-[1.02] active:scale-[0.99] inline-flex items-center justify-center gap-3"
                     style={{
-                      boxShadow: "0 10px 30px oklch(0.24 0.10 18 / 0.45), inset 0 1px 0 oklch(0.85 0.12 80 / 0.3)",
-                      border: "1px solid oklch(0.78 0.12 80 / 0.4)",
+                      background: "linear-gradient(135deg, oklch(0.32 0.12 18) 0%, oklch(0.24 0.10 18) 100%)",
+                      boxShadow: "0 10px 30px oklch(0.20 0.10 18 / 0.5), inset 0 1px 0 oklch(0.85 0.12 80 / 0.25)",
+                      border: "1px solid oklch(0.78 0.12 80 / 0.45)",
                     }}
                   >
-                    ✦ تأكيد الحضور ✦
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full" style={{ border: "1px solid oklch(0.82 0.12 82 / 0.7)" }}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="oklch(0.86 0.10 82)" strokeWidth="2.5">
+                        <path d="M5 12l5 5 9-11"/>
+                      </svg>
+                    </span>
+                    <span className="font-semibold">تأكيد الحضور</span>
+                  </button>
+
                   </button>
                 </form>
               ) : (
