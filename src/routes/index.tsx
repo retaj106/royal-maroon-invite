@@ -9,9 +9,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "دعوة زفاف قيس ودانة" },
-      { name: "description", content: "دعوة زفاف فاخرة — قيس & دانة. يسعدنا حضوركم لمشاركتنا أجمل اللحظات." },
-      { property: "og:title", content: "دعوة زفاف قيس & دانة" },
+      { title: "دعوة زفاف قيس ودانية" },
+      { name: "description", content: "دعوة زفاف فاخرة — قيس & دانية. يسعدنا حضوركم لمشاركتنا أجمل اللحظات." },
+      { property: "og:title", content: "دعوة زفاف قيس & دانية" },
       { property: "og:description", content: "دعوة زفاف فاخرة وأنيقة" },
     ],
   }),
