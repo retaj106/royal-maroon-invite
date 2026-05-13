@@ -12,27 +12,29 @@ function TulipCorner({ className = "", flip = false }: { className?: string; fli
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id={`petal-${uid}`} cx="50%" cy="35%" r="65%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="55%" stopColor="oklch(0.97 0.008 75)" />
-          <stop offset="100%" stopColor="oklch(0.88 0.025 65)" />
+        {/* Beige / ivory / champagne tulip petals */}
+        <radialGradient id={`petal-${uid}`} cx="50%" cy="35%" r="70%">
+          <stop offset="0%" stopColor="oklch(0.97 0.012 80)" />
+          <stop offset="50%" stopColor="oklch(0.91 0.025 78)" />
+          <stop offset="100%" stopColor="oklch(0.80 0.045 75)" />
         </radialGradient>
         <radialGradient id={`petalShade-${uid}`} cx="50%" cy="60%" r="60%">
-          <stop offset="0%" stopColor="oklch(0.92 0.018 70)" />
-          <stop offset="100%" stopColor="oklch(0.80 0.035 60)" />
+          <stop offset="0%" stopColor="oklch(0.86 0.035 75)" />
+          <stop offset="100%" stopColor="oklch(0.70 0.055 70)" />
         </radialGradient>
+        {/* Muted olive / sage leaves */}
         <linearGradient id={`leaf-${uid}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.58 0.08 145 / 0.85)" />
-          <stop offset="100%" stopColor="oklch(0.38 0.09 150 / 0.85)" />
+          <stop offset="0%" stopColor="oklch(0.62 0.045 125 / 0.85)" />
+          <stop offset="100%" stopColor="oklch(0.42 0.05 130 / 0.9)" />
         </linearGradient>
         <linearGradient id={`stem-${uid}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="oklch(0.55 0.08 145)" />
-          <stop offset="100%" stopColor="oklch(0.40 0.09 150)" />
+          <stop offset="0%" stopColor="oklch(0.55 0.045 125)" />
+          <stop offset="100%" stopColor="oklch(0.40 0.05 130)" />
         </linearGradient>
       </defs>
 
-      {/* soft watercolor wash backdrop */}
-      <ellipse cx="80" cy="100" rx="95" ry="80" fill="oklch(0.95 0.015 70 / 0.35)" />
+      {/* soft champagne watercolor wash backdrop */}
+      <ellipse cx="80" cy="100" rx="95" ry="80" fill="oklch(0.92 0.03 78 / 0.35)" />
 
       {/* long curved leaves */}
       <path d="M25 215 Q35 140 95 80 Q70 150 40 215 Z" fill={`url(#leaf-${uid})`} opacity="0.8"/>
@@ -54,7 +56,7 @@ function TulipCorner({ className = "", flip = false }: { className?: string; fli
               fill={`url(#petal-${uid})`}
               stroke="oklch(0.65 0.04 70 / 0.45)" strokeWidth="0.6"/>
         {/* inner highlight */}
-        <path d="M-2 -28 Q-8 0 -3 30" stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.7"/>
+        <path d="M-2 -28 Q-8 0 -3 30" stroke="oklch(0.97 0.012 80)" strokeWidth="1.2" fill="none" opacity="0.7"/>
       </g>
 
       {/* SECOND white tulip — top right, slightly smaller */}
@@ -64,7 +66,7 @@ function TulipCorner({ className = "", flip = false }: { className?: string; fli
         <path d="M0 35 Q-18 0 0 -34 Q18 0 0 35 Z"
               fill={`url(#petal-${uid})`}
               stroke="oklch(0.65 0.04 70 / 0.45)" strokeWidth="0.6"/>
-        <path d="M-2 -25 Q-7 0 -2 27" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.65"/>
+        <path d="M-2 -25 Q-7 0 -2 27" stroke="oklch(0.97 0.012 80)" strokeWidth="1" fill="none" opacity="0.65"/>
       </g>
 
       {/* THIRD bud — small */}
@@ -124,12 +126,7 @@ export function Cards() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div
-      className="min-h-screen w-full pt-24 pb-32 px-4 sm:px-8"
-      style={{
-        background: "linear-gradient(180deg, oklch(0.24 0.10 18) 0%, oklch(0.30 0.11 18) 50%, oklch(0.24 0.10 18) 100%)",
-      }}
-    >
+    <div className="min-h-screen w-full pt-24 pb-32 px-4 sm:px-8 bg-burgundy-damask">
       {/* heading */}
       <motion.div
         className="text-center mb-12 max-w-2xl mx-auto"
@@ -137,13 +134,14 @@ export function Cards() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
       >
-        <p className="text-gold/70 tracking-[0.5em] text-xs mb-3">دعوة كريمة</p>
-        <h1 className="font-arabic-display text-4xl sm:text-6xl text-gold-shimmer animate-shimmer"
+        <p className="text-gold/70 tracking-[0.5em] text-xs mb-4">دعوة كريمة</p>
+        <h1 className="font-arabic-display text-5xl sm:text-7xl md:text-8xl leading-[1.15] animate-shimmer"
             style={{
-              background: "linear-gradient(135deg, oklch(0.92 0.10 88) 0%, oklch(0.75 0.13 78) 50%, oklch(0.92 0.10 88) 100%)",
+              background: "linear-gradient(135deg, oklch(0.94 0.10 88) 0%, oklch(0.72 0.14 78) 50%, oklch(0.94 0.10 88) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 2px 6px oklch(0.10 0.05 18 / 0.5))",
             }}>
-          قيس & دانية
+          قيس <span className="text-3xl sm:text-5xl align-middle opacity-80">&amp;</span> دانية
         </h1>
         <p className="text-paper/70 mt-4 font-arabic text-base sm:text-lg leading-loose">
           بكل الفرح والسرور، يسعدنا دعوتكم لحضور حفل زفافنا<br/>
@@ -189,9 +187,8 @@ export function Cards() {
               <a
                 href="https://maps.app.goo.gl/CKzzVxLxTthghXRN6"
                 target="_blank" rel="noreferrer"
-                className="group mt-2 inline-flex items-center gap-3 px-8 py-4 rounded-full font-arabic text-paper transition-all hover:scale-105"
+                className="group mt-2 inline-flex items-center gap-3 px-8 py-4 rounded-full font-arabic text-paper transition-all hover:scale-105 bg-burgundy-damask-btn"
                 style={{
-                  background: "var(--gradient-burgundy)",
                   boxShadow: "0 8px 24px oklch(0.24 0.10 18 / 0.4), inset 0 1px 0 oklch(0.85 0.12 80 / 0.3)",
                   border: "1px solid oklch(0.78 0.12 80 / 0.4)",
                 }}
@@ -216,7 +213,7 @@ export function Cards() {
           <FloralPaper className="min-h-[480px]">
             <div className="px-6 sm:px-12 py-14 flex flex-col items-center text-center">
               <div className="text-gold/80 text-xs tracking-[0.4em] mb-3">تأكيد الحضور</div>
-              <h2 className="font-arabic-display text-3xl sm:text-4xl text-burgundy-deep">
+              <h2 className="font-arabic-display text-4xl sm:text-5xl text-burgundy-deep leading-tight">
                 نتشرّف بحضوركم
               </h2>
               <SectionDivider />
@@ -248,9 +245,8 @@ export function Cards() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full mt-6 py-4 rounded-full font-arabic text-paper tracking-wider transition-all hover:scale-[1.02] active:scale-[0.99]"
+                    className="w-full mt-6 py-4 rounded-full font-arabic text-paper tracking-wider transition-all hover:scale-[1.02] active:scale-[0.99] bg-burgundy-damask-btn"
                     style={{
-                      background: "var(--gradient-burgundy)",
                       boxShadow: "0 10px 30px oklch(0.24 0.10 18 / 0.45), inset 0 1px 0 oklch(0.85 0.12 80 / 0.3)",
                       border: "1px solid oklch(0.78 0.12 80 / 0.4)",
                     }}
