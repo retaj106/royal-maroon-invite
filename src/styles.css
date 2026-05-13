@@ -80,7 +80,9 @@
   --texture-paper:
     radial-gradient(circle at 20% 30%, oklch(0.92 0.02 60 / 0.4) 0%, transparent 40%),
     radial-gradient(circle at 80% 70%, oklch(0.90 0.025 65 / 0.3) 0%, transparent 50%);
-}
+
+  /* Royal damask floral pattern (gold-on-burgundy SVG, soft & subtle) */
+  --damask-pattern: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'><g fill='none' stroke='%23d4af6a' stroke-width='0.9' stroke-opacity='0.22'><path d='M70 8c8 14 22 18 32 14-8 8-10 22-2 32-14-6-28 0-32 14-4-14-18-20-32-14 8-10 6-24-2-32 10 4 24 0 36-14z'/><circle cx='70' cy='70' r='5'/><path d='M70 30c4 8 12 10 18 8-4 4-6 12-2 18-8-2-16 2-18 8-2-6-10-10-18-8 4-6 2-14-2-18 6 2 14 0 22-8z'/><path d='M0 70c10-2 18-10 20-20 2 10 10 18 20 20-10 2-18 10-20 20-2-10-10-18-20-20z'/><path d='M140 70c-10-2-18-10-20-20-2 10-10 18-20 20 10 2 18 10 20 20 2-10 10-18 20-20z'/><path d='M70 140c-2-10-10-18-20-20 10-2 18-10 20-20 2 10 10 18 20 20-10 2-18 10-20 20z'/></g></svg>");
 
 @layer base {
   * {
