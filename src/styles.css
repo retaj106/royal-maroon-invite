@@ -112,6 +112,23 @@
     background-image: var(--texture-paper);
   }
 
+  .bg-burgundy-damask {
+    background-color: oklch(0.26 0.10 18);
+    background-image:
+      var(--damask-pattern),
+      radial-gradient(ellipse at 50% 0%, oklch(0.36 0.13 20 / 0.55), transparent 60%),
+      linear-gradient(180deg, oklch(0.24 0.10 18) 0%, oklch(0.30 0.11 18) 50%, oklch(0.22 0.09 18) 100%);
+    background-size: 140px 140px, 100% 100%, 100% 100%;
+  }
+
+  .bg-burgundy-damask-btn {
+    background-color: oklch(0.30 0.11 18);
+    background-image:
+      var(--damask-pattern),
+      linear-gradient(135deg, oklch(0.36 0.13 20) 0%, oklch(0.24 0.10 18) 100%);
+    background-size: 90px 90px, 100% 100%;
+  }
+
   .shadow-luxury { box-shadow: var(--shadow-luxury); }
   .shadow-paper { box-shadow: var(--shadow-paper); }
   .shadow-gold-glow { box-shadow: var(--shadow-gold); }
