@@ -213,7 +213,7 @@ export function Cards() {
           <FloralPaper className="min-h-[480px]">
             <div className="px-6 sm:px-12 py-14 flex flex-col items-center text-center">
               <div className="text-gold/80 text-xs tracking-[0.4em] mb-3">تأكيد الحضور</div>
-              <h2 className="font-arabic-display text-3xl sm:text-4xl text-burgundy-deep">
+              <h2 className="font-arabic-display text-4xl sm:text-5xl text-burgundy-deep leading-tight">
                 نتشرّف بحضوركم
               </h2>
               <SectionDivider />
