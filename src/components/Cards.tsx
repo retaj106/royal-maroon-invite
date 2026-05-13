@@ -104,7 +104,7 @@ export function Cards() {
               background: "linear-gradient(135deg, oklch(0.92 0.10 88) 0%, oklch(0.75 0.13 78) 50%, oklch(0.92 0.10 88) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             }}>
-          قيس & دانة
+          قيس & دانية
         </h1>
         <p className="text-paper/70 mt-4 font-arabic text-base sm:text-lg leading-loose">
           بكل الفرح والسرور، يسعدنا دعوتكم لحضور حفل زفافنا<br/>
@@ -124,7 +124,7 @@ export function Cards() {
           <FloralPaper className="p-4 sm:p-6">
             <img
               src="https://i.postimg.cc/3x9B6m5f/Whats-App-Image-2026-05-10-at-8-35-14-PM.jpg"
-              alt="دعوة زفاف قيس و دانة"
+              alt="دعوة زفاف قيس و دانية"
               className="w-full h-auto rounded-sm"
               style={{ display: "block" }}
             />
@@ -253,7 +253,7 @@ export function Cards() {
             <span>✦</span>
             <span className="h-px w-20 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
           </div>
-          <p className="mt-4 font-arabic-display text-gold/70 text-lg">قيس & دانة</p>
+          <p className="mt-4 font-arabic-display text-gold/70 text-lg">قيس & دانية</p>
         </motion.div>
       </div>
     </div>
