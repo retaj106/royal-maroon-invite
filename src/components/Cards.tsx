@@ -244,9 +244,8 @@ export function Cards() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full mt-6 py-4 rounded-full font-arabic text-paper tracking-wider transition-all hover:scale-[1.02] active:scale-[0.99]"
+                    className="w-full mt-6 py-4 rounded-full font-arabic text-paper tracking-wider transition-all hover:scale-[1.02] active:scale-[0.99] bg-burgundy-damask-btn"
                     style={{
-                      background: "var(--gradient-burgundy)",
                       boxShadow: "0 10px 30px oklch(0.24 0.10 18 / 0.45), inset 0 1px 0 oklch(0.85 0.12 80 / 0.3)",
                       border: "1px solid oklch(0.78 0.12 80 / 0.4)",
                     }}
