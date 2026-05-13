@@ -12,27 +12,29 @@ function TulipCorner({ className = "", flip = false }: { className?: string; fli
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id={`petal-${uid}`} cx="50%" cy="35%" r="65%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="55%" stopColor="oklch(0.97 0.008 75)" />
-          <stop offset="100%" stopColor="oklch(0.88 0.025 65)" />
+        {/* Beige / ivory / champagne tulip petals */}
+        <radialGradient id={`petal-${uid}`} cx="50%" cy="35%" r="70%">
+          <stop offset="0%" stopColor="oklch(0.97 0.012 80)" />
+          <stop offset="50%" stopColor="oklch(0.91 0.025 78)" />
+          <stop offset="100%" stopColor="oklch(0.80 0.045 75)" />
         </radialGradient>
         <radialGradient id={`petalShade-${uid}`} cx="50%" cy="60%" r="60%">
-          <stop offset="0%" stopColor="oklch(0.92 0.018 70)" />
-          <stop offset="100%" stopColor="oklch(0.80 0.035 60)" />
+          <stop offset="0%" stopColor="oklch(0.86 0.035 75)" />
+          <stop offset="100%" stopColor="oklch(0.70 0.055 70)" />
         </radialGradient>
+        {/* Muted olive / sage leaves */}
         <linearGradient id={`leaf-${uid}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.58 0.08 145 / 0.85)" />
-          <stop offset="100%" stopColor="oklch(0.38 0.09 150 / 0.85)" />
+          <stop offset="0%" stopColor="oklch(0.62 0.045 125 / 0.85)" />
+          <stop offset="100%" stopColor="oklch(0.42 0.05 130 / 0.9)" />
         </linearGradient>
         <linearGradient id={`stem-${uid}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="oklch(0.55 0.08 145)" />
-          <stop offset="100%" stopColor="oklch(0.40 0.09 150)" />
+          <stop offset="0%" stopColor="oklch(0.55 0.045 125)" />
+          <stop offset="100%" stopColor="oklch(0.40 0.05 130)" />
         </linearGradient>
       </defs>
 
-      {/* soft watercolor wash backdrop */}
-      <ellipse cx="80" cy="100" rx="95" ry="80" fill="oklch(0.95 0.015 70 / 0.35)" />
+      {/* soft champagne watercolor wash backdrop */}
+      <ellipse cx="80" cy="100" rx="95" ry="80" fill="oklch(0.92 0.03 78 / 0.35)" />
 
       {/* long curved leaves */}
       <path d="M25 215 Q35 140 95 80 Q70 150 40 215 Z" fill={`url(#leaf-${uid})`} opacity="0.8"/>
