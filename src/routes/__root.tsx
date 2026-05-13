@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Wedding Invitation | دعوة زفاف" },
+      { name: "description", content: "نتشرف بدعوتكم لمشاركتنا فرحتنا في ليلة العمر. حضوركم يسعدنا ويتمم فرحتنا." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Wedding Invitation | دعوة زفاف" },
+      { property: "og:description", content: "نتشرف بدعوتكم لمشاركتنا فرحتنا في ليلة العمر. حضوركم يسعدنا ويتمم فرحتنا." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Wedding Invitation | دعوة زفاف" },
+      { name: "twitter:description", content: "نتشرف بدعوتكم لمشاركتنا فرحتنا في ليلة العمر. حضوركم يسعدنا ويتمم فرحتنا." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e2fd4ee7-f92f-40f2-a54f-21ef0bf4a3fb/id-preview-9f9fc316--9ae5ff9e-625c-4877-a315-16515943d57b.lovable.app-1778643443916.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e2fd4ee7-f92f-40f2-a54f-21ef0bf4a3fb/id-preview-9f9fc316--9ae5ff9e-625c-4877-a315-16515943d57b.lovable.app-1778643443916.png" },
     ],
     links: [
       {
