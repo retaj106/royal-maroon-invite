@@ -105,8 +105,20 @@
 
 @layer utilities {
   .font-arabic { font-family: var(--font-arabic); }
+  .font-cairo { font-family: 'Cairo', sans-serif; }
   .font-arabic-display { font-family: var(--font-arabic-display); }
   .font-serif-lux { font-family: var(--font-serif); }
+
+  .text-brown-gold { color: oklch(0.48 0.08 60); }
+
+  .bg-cream-paper {
+    background-color: oklch(0.965 0.018 78);
+    background-image:
+      radial-gradient(circle at 25% 30%, oklch(0.92 0.025 65 / 0.35) 0%, transparent 45%),
+      radial-gradient(circle at 75% 70%, oklch(0.90 0.03 70 / 0.3) 0%, transparent 50%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.18  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: auto, auto, 160px 160px;
+  }
 
   .bg-paper-texture {
     background-color: var(--paper);
