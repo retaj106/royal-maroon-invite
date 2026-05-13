@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CoverScreen } from "@/components/CoverScreen";
 import { Envelope } from "@/components/Envelope";
 import { Cards } from "@/components/Cards";
 import { MusicPlayer } from "@/components/MusicPlayer";
@@ -18,17 +17,14 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-type Stage = "cover" | "envelope" | "cards";
+type Stage = "envelope" | "cards";
 
 function Index() {
-  const [stage, setStage] = useState<Stage>("cover");
+  const [stage, setStage] = useState<Stage>("envelope");
 
   return (
     <main className="min-h-screen w-full relative" dir="rtl">
       <AnimatePresence mode="wait">
-        {stage === "cover" && (
-          <CoverScreen key="cover" onContinue={() => setStage("envelope")} />
-        )}
         {stage === "envelope" && (
           <motion.div key="envelope" exit={{ opacity: 0 }} transition={{ duration: 0.8 }}>
             <Envelope onOpen={() => setStage("cards")} />
@@ -41,7 +37,7 @@ function Index() {
         )}
       </AnimatePresence>
 
-      {stage !== "cover" && <MusicPlayer autoplay={stage === "cards"} />}
+      <MusicPlayer autoplay={stage === "cards"} />
     </main>
   );
 }
