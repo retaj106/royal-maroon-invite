@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const ENVELOPE_IMG = "https://i.ibb.co/R4bWXp9b/Whats-App-Image-2026-05-13-at-5-15-08-AM.jpg";
+// Seal position within the original image (675x1200)
+const SEAL_X = 0.5;   // 50% from left
+const SEAL_Y = 0.523; // ~52% from top
+const SEAL_W = 0.43;  // 43% of image width
+
 interface Props {
   onOpen: () => void;
 }
@@ -11,165 +17,170 @@ export function Envelope({ onOpen }: Props) {
   const handleOpen = () => {
     if (opening) return;
     setOpening(true);
-    setTimeout(onOpen, 1800);
+    setTimeout(onOpen, 1700);
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center overflow-hidden"
-         style={{ background: "radial-gradient(ellipse at center, oklch(0.28 0.10 18) 0%, oklch(0.16 0.06 18) 100%)" }}>
-      {/* ambient glow */}
-      <div className="absolute inset-0 pointer-events-none"
-           style={{ background: "radial-gradient(circle at 50% 50%, oklch(0.85 0.12 80 / 0.15), transparent 55%)" }} />
+    <div
+      className="fixed inset-0 flex items-center justify-center overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(ellipse at center, oklch(0.22 0.09 18) 0%, oklch(0.12 0.05 18) 100%)",
+      }}
+    >
+      {/* ambient gold glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 50%, oklch(0.85 0.12 80 / 0.18), transparent 60%)",
+        }}
+      />
 
-      {/* particles */}
-      {Array.from({ length: 18 }).map((_, i) => (
-        <span
-          key={i}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            left: `${(i * 53) % 100}%`,
-            width: `${3 + (i % 4)}px`,
-            height: `${3 + (i % 4)}px`,
-            background: "oklch(0.85 0.12 80 / 0.55)",
-            boxShadow: "0 0 8px oklch(0.85 0.12 80 / 0.8)",
-            animation: `float-particle ${10 + (i % 6)}s linear ${i * 0.6}s infinite`,
-          }}
-        />
-      ))}
-
+      {/* Envelope frame — preserves the image's portrait aspect ratio (675x1200) */}
       <motion.div
-        className="relative"
-        initial={{ scale: 0.7, opacity: 0, y: 30 }}
+        className="relative h-[100vh] max-h-[100dvh]"
+        style={{ aspectRatio: "675 / 1200", perspective: 1600 }}
+        initial={{ scale: 0.92, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        style={{ perspective: 1400 }}
+        transition={{ duration: 1.4, ease: "easeOut" }}
       >
-        {/* ornate frame caption */}
+        {/* LEFT half of envelope */}
         <motion.div
-          className="text-center mb-8 font-arabic-display"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: opening ? 0 : 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1 }}
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            backgroundImage: `url(${ENVELOPE_IMG})`,
+            backgroundSize: "100% 100%",
+            backgroundRepeat: "no-repeat",
+            clipPath: "polygon(0 0, 50% 0, 50% 100%, 0 100%)",
+            transformOrigin: "left center",
+            filter: "drop-shadow(0 30px 60px oklch(0.1 0.05 18 / 0.6))",
+          }}
+          animate={
+            opening
+              ? { x: "-55%", rotateY: -28, opacity: 0.9 }
+              : { x: 0, rotateY: 0, opacity: 1 }
+          }
+          transition={{ duration: 1.5, ease: [0.65, 0, 0.35, 1] }}
+        />
+        {/* RIGHT half of envelope */}
+        <motion.div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            backgroundImage: `url(${ENVELOPE_IMG})`,
+            backgroundSize: "100% 100%",
+            backgroundRepeat: "no-repeat",
+            clipPath: "polygon(50% 0, 100% 0, 100% 100%, 50% 100%)",
+            transformOrigin: "right center",
+            filter: "drop-shadow(0 30px 60px oklch(0.1 0.05 18 / 0.6))",
+          }}
+          animate={
+            opening
+              ? { x: "55%", rotateY: 28, opacity: 0.9 }
+              : { x: 0, rotateY: 0, opacity: 1 }
+          }
+          transition={{ duration: 1.5, ease: [0.65, 0, 0.35, 1] }}
+        />
+
+        {/* Wax seal — covers the original rose seal exactly */}
+        <motion.button
+          onClick={handleOpen}
+          disabled={opening}
+          aria-label="افتح المظروف"
+          className="absolute group focus:outline-none"
+          style={{
+            left: `${SEAL_X * 100}%`,
+            top: `${SEAL_Y * 100}%`,
+            width: `${SEAL_W * 100}%`,
+            aspectRatio: "1 / 1",
+            transform: "translate(-50%, -50%)",
+          }}
+          animate={
+            opening
+              ? { scale: 0.4, opacity: 0, rotate: 25 }
+              : { scale: 1, opacity: 1, rotate: 0 }
+          }
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
         >
-          <p className="text-gold/80 text-xs tracking-[0.5em] mb-2">دعوة زفاف</p>
-          <div className="flex items-center justify-center gap-3 text-gold/70">
-            <span className="h-px w-12 bg-gradient-to-l from-transparent via-gold to-transparent" />
-            <span className="text-lg">✦</span>
-            <span className="h-px w-12 bg-gradient-to-r from-transparent via-gold to-transparent" />
-          </div>
-        </motion.div>
-
-        {/* envelope wrapper */}
-        <div className="relative w-[340px] h-[230px] sm:w-[440px] sm:h-[300px]"
-             style={{ transformStyle: "preserve-3d" }}>
-
-          {/* envelope back */}
-          <div className="absolute inset-0 rounded-md shadow-luxury"
-               style={{
-                 background: "linear-gradient(135deg, oklch(0.34 0.12 20) 0%, oklch(0.26 0.10 18) 100%)",
-                 boxShadow: "inset 0 0 40px oklch(0.18 0.08 18), 0 30px 80px -20px oklch(0.1 0.05 18 / 0.7)",
-               }}>
-            {/* subtle texture */}
-            <div className="absolute inset-0 opacity-30 rounded-md"
-                 style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.45 0.13 22 / 0.4), transparent 60%)" }} />
-          </div>
-
-          {/* paper sliding out */}
-          <motion.div
-            className="absolute left-1/2 top-1/2 w-[78%] h-[88%] bg-paper rounded-sm shadow-paper"
-            style={{
-              x: "-50%", y: "-50%",
-              backgroundImage: "var(--texture-paper)",
-            }}
-            animate={opening ? { y: "-130%", scale: 1.02 } : { y: "-50%" }}
-            transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}
-          >
-            <div className="h-full flex flex-col items-center justify-center font-arabic-display text-burgundy-deep px-4">
-              <p className="text-[10px] tracking-[0.4em] text-burgundy/60 mb-3">يسرّنا دعوتكم</p>
-              <div className="flex items-center gap-3 text-2xl">
-                <span>قاسم</span>
-                <span className="text-gold">&</span>
-                <span>دانة</span>
-              </div>
-              <div className="mt-3 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
-            </div>
-          </motion.div>
-
-          {/* envelope flap (top triangle) */}
-          <motion.div
-            className="absolute inset-x-0 top-0 origin-top"
-            style={{
-              height: "55%",
-              clipPath: "polygon(0 0, 100% 0, 50% 100%)",
-              background: "linear-gradient(180deg, oklch(0.38 0.13 20) 0%, oklch(0.30 0.11 18) 100%)",
-              boxShadow: "inset 0 -10px 20px oklch(0.18 0.08 18 / 0.6)",
-              transformStyle: "preserve-3d",
-              backfaceVisibility: "hidden",
-            }}
-            animate={opening ? { rotateX: -180 } : { rotateX: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-
-          {/* envelope front body (covers paper bottom half) */}
+          {/* Wax body — scalloped via radial mask */}
           <div
-            className="absolute inset-x-0 bottom-0 rounded-b-md"
+            className="absolute inset-0 rounded-full animate-glow-pulse"
             style={{
-              height: "62%",
-              background: "linear-gradient(180deg, oklch(0.30 0.11 18) 0%, oklch(0.36 0.13 20) 100%)",
-              clipPath: "polygon(0 25%, 50% 0%, 100% 25%, 100% 100%, 0 100%)",
-              boxShadow: "inset 0 10px 20px oklch(0.18 0.08 18 / 0.5)",
+              background:
+                "radial-gradient(circle at 35% 30%, oklch(0.50 0.18 24) 0%, oklch(0.32 0.14 20) 55%, oklch(0.20 0.10 18) 100%)",
+              boxShadow:
+                "0 14px 30px oklch(0.1 0.05 18 / 0.55), inset 0 -8px 14px oklch(0.14 0.07 18 / 0.85), inset 0 4px 10px oklch(0.62 0.20 26 / 0.5)",
+              clipPath:
+                "polygon(50% 0%, 61% 8%, 71% 4%, 78% 14%, 90% 16%, 92% 28%, 100% 36%, 96% 47%, 100% 60%, 92% 70%, 90% 82%, 78% 84%, 71% 94%, 61% 90%, 50% 100%, 39% 90%, 29% 94%, 22% 84%, 10% 82%, 8% 70%, 0% 60%, 4% 47%, 0% 36%, 8% 28%, 10% 16%, 22% 14%, 29% 4%, 39% 8%)",
+            }}
+          />
+          {/* Inner ornate rings */}
+          <div
+            className="absolute rounded-full pointer-events-none"
+            style={{
+              inset: "12%",
+              border: "1px solid oklch(0.85 0.12 80 / 0.55)",
+              boxShadow:
+                "inset 0 0 8px oklch(0.85 0.12 80 / 0.25), inset 0 0 0 4px oklch(0.18 0.08 18 / 0.35)",
+            }}
+          />
+          <div
+            className="absolute rounded-full pointer-events-none"
+            style={{
+              inset: "20%",
+              border: "1px dashed oklch(0.85 0.12 80 / 0.35)",
             }}
           />
 
-          {/* wax seal */}
-          <motion.button
-            onClick={handleOpen}
-            disabled={opening}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 group"
-            initial={{ scale: 0, rotate: -45 }}
-            animate={opening ? { scale: 0, opacity: 0, rotate: 90 } : { scale: 1, rotate: 0 }}
-            transition={{ delay: opening ? 0 : 1.2, duration: 0.6, type: "spring", stiffness: 180 }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
+          {/* Arabic calligraphy "ق & د" — gold embossed */}
+          <div
+            className="absolute inset-0 flex items-center justify-center font-arabic-display"
+            style={{
+              textShadow:
+                "0 1px 0 oklch(0.95 0.10 88 / 0.6), 0 -1px 1px oklch(0.15 0.06 18 / 0.7), 0 2px 3px oklch(0.10 0.05 18 / 0.6)",
+            }}
           >
-            <div
-              className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center animate-glow-pulse"
+            <span
+              className="flex items-baseline gap-[0.08em] animate-shimmer"
               style={{
-                background: "radial-gradient(circle at 35% 30%, oklch(0.48 0.16 22) 0%, oklch(0.28 0.12 18) 70%, oklch(0.20 0.09 18) 100%)",
-                boxShadow: "0 8px 20px oklch(0.1 0.05 18 / 0.6), inset 0 -4px 8px oklch(0.15 0.07 18 / 0.7), inset 0 3px 6px oklch(0.55 0.18 24 / 0.4)",
+                fontSize: "min(13vh, 4.6rem)",
+                lineHeight: 1,
+                background:
+                  "linear-gradient(135deg, oklch(0.96 0.10 88) 0%, oklch(0.78 0.14 78) 45%, oklch(0.96 0.10 88) 100%)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                filter:
+                  "drop-shadow(0 1px 0 oklch(0.18 0.08 18 / 0.55)) drop-shadow(0 0 6px oklch(0.85 0.12 80 / 0.35))",
               }}
             >
-              {/* seal scallop ring */}
-              <div className="absolute inset-1 rounded-full border border-gold/30" />
-              {/* initials */}
-              <div className="font-arabic-display flex items-baseline gap-1 text-gold-shimmer animate-shimmer text-2xl sm:text-3xl"
-                   style={{
-                     background: "linear-gradient(135deg, oklch(0.92 0.10 88) 0%, oklch(0.70 0.13 75) 50%, oklch(0.92 0.10 88) 100%)",
-                     WebkitBackgroundClip: "text",
-                     WebkitTextFillColor: "transparent",
-                     textShadow: "0 1px 1px oklch(0.2 0.08 18 / 0.4)",
-                     filter: "drop-shadow(0 1px 0 oklch(0.15 0.06 18 / 0.5))",
-                   }}>
-                <span>ق</span>
-                <span className="text-xl opacity-70">&</span>
-                <span>د</span>
-              </div>
-            </div>
-            <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-gold/80 text-xs tracking-[0.3em] font-arabic opacity-0 group-hover:opacity-100 transition-opacity">
-              اضغط لفتح المظروف
+              <span>ق</span>
+              <span style={{ fontSize: "0.55em", opacity: 0.85 }}>&amp;</span>
+              <span>د</span>
             </span>
-          </motion.button>
-        </div>
+          </div>
 
-        {/* hint */}
-        <motion.p
-          className="text-center mt-12 text-gold/60 font-arabic text-xs tracking-[0.3em]"
+          {/* hover hint */}
+          <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-gold/85 text-[11px] tracking-[0.4em] font-arabic opacity-0 group-hover:opacity-100 transition-opacity">
+            اضغط لفتح المظروف
+          </span>
+        </motion.button>
+
+        {/* subtle hint at bottom */}
+        <motion.div
+          className="absolute inset-x-0 bottom-6 text-center pointer-events-none"
           initial={{ opacity: 0 }}
-          animate={{ opacity: opening ? 0 : 1 }}
-          transition={{ delay: 2, duration: 1.2 }}
+          animate={{ opacity: opening ? 0 : 0.85 }}
+          transition={{ delay: 1.6, duration: 1.2 }}
         >
-          ◆ اضغط على الختم ◆
-        </motion.p>
+          <p className="font-arabic text-[10px] tracking-[0.5em] text-burgundy-deep/70">
+            ◆ اضغط على الختم ◆
+          </p>
+        </motion.div>
       </motion.div>
     </div>
   );
