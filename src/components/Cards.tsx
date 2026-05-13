@@ -134,13 +134,14 @@ export function Cards() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
       >
-        <p className="text-gold/70 tracking-[0.5em] text-xs mb-3">دعوة كريمة</p>
-        <h1 className="font-arabic-display text-4xl sm:text-6xl text-gold-shimmer animate-shimmer"
+        <p className="text-gold/70 tracking-[0.5em] text-xs mb-4">دعوة كريمة</p>
+        <h1 className="font-arabic-display text-5xl sm:text-7xl md:text-8xl leading-[1.15] animate-shimmer"
             style={{
-              background: "linear-gradient(135deg, oklch(0.92 0.10 88) 0%, oklch(0.75 0.13 78) 50%, oklch(0.92 0.10 88) 100%)",
+              background: "linear-gradient(135deg, oklch(0.94 0.10 88) 0%, oklch(0.72 0.14 78) 50%, oklch(0.94 0.10 88) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 2px 6px oklch(0.10 0.05 18 / 0.5))",
             }}>
-          قيس & دانية
+          قيس <span className="text-3xl sm:text-5xl align-middle opacity-80">&amp;</span> دانية
         </h1>
         <p className="text-paper/70 mt-4 font-arabic text-base sm:text-lg leading-loose">
           بكل الفرح والسرور، يسعدنا دعوتكم لحضور حفل زفافنا<br/>
