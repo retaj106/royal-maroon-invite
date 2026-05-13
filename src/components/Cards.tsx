@@ -98,10 +98,10 @@ function FloralPaper({ children, className = "" }: { children: React.ReactNode; 
       <div className="absolute inset-3 border border-burgundy/10 rounded-sm pointer-events-none" style={{ margin: "3px" }} />
 
       {/* tulip corners */}
-      <TulipCorner className="absolute -top-2 -right-2 w-32 h-32 opacity-90 pointer-events-none" />
-      <TulipCorner className="absolute -bottom-2 -left-2 w-32 h-32 opacity-90 pointer-events-none rotate-180" />
-      <TulipCorner className="absolute -top-2 -left-2 w-24 h-24 opacity-60 pointer-events-none" flip />
-      <TulipCorner className="absolute -bottom-2 -right-2 w-24 h-24 opacity-60 pointer-events-none rotate-180" flip />
+      <TulipCorner className="absolute -top-4 -right-4 w-44 h-44 sm:w-52 sm:h-52 opacity-95 pointer-events-none" />
+      <TulipCorner className="absolute -bottom-4 -left-4 w-44 h-44 sm:w-52 sm:h-52 opacity-95 pointer-events-none rotate-180" />
+      <TulipCorner className="absolute -top-3 -left-3 w-32 h-32 sm:w-36 sm:h-36 opacity-70 pointer-events-none" flip />
+      <TulipCorner className="absolute -bottom-3 -right-3 w-32 h-32 sm:w-36 sm:h-36 opacity-70 pointer-events-none rotate-180" flip />
 
       <div className="relative z-10">{children}</div>
     </div>
