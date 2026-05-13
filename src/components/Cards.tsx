@@ -1,46 +1,85 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// Decorative tulip SVG corner
+// Decorative white tulip bouquet corner — luxury wedding watercolor style
 function TulipCorner({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+  const uid = Math.random().toString(36).slice(2, 7);
   return (
     <svg
-      viewBox="0 0 200 200"
+      viewBox="0 0 240 240"
       className={className}
       style={{ transform: flip ? "scaleX(-1)" : undefined }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id="petal" cx="50%" cy="40%">
-          <stop offset="0%" stopColor="oklch(0.99 0.005 75)" />
-          <stop offset="100%" stopColor="oklch(0.92 0.02 60)" />
+        <radialGradient id={`petal-${uid}`} cx="50%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="55%" stopColor="oklch(0.97 0.008 75)" />
+          <stop offset="100%" stopColor="oklch(0.88 0.025 65)" />
         </radialGradient>
-        <linearGradient id="leaf" x1="0" x2="1">
-          <stop offset="0%" stopColor="oklch(0.55 0.06 130 / 0.6)" />
-          <stop offset="100%" stopColor="oklch(0.45 0.08 140 / 0.5)" />
+        <radialGradient id={`petalShade-${uid}`} cx="50%" cy="60%" r="60%">
+          <stop offset="0%" stopColor="oklch(0.92 0.018 70)" />
+          <stop offset="100%" stopColor="oklch(0.80 0.035 60)" />
+        </radialGradient>
+        <linearGradient id={`leaf-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="oklch(0.58 0.08 145 / 0.85)" />
+          <stop offset="100%" stopColor="oklch(0.38 0.09 150 / 0.85)" />
+        </linearGradient>
+        <linearGradient id={`stem-${uid}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="oklch(0.55 0.08 145)" />
+          <stop offset="100%" stopColor="oklch(0.40 0.09 150)" />
         </linearGradient>
       </defs>
-      {/* leaves */}
-      <path d="M20 180 Q40 120 80 100 Q60 140 30 180 Z" fill="url(#leaf)" opacity="0.7"/>
-      <path d="M10 160 Q50 100 110 90 Q70 130 20 175 Z" fill="url(#leaf)" opacity="0.5"/>
-      {/* tulip 1 */}
-      <g transform="translate(60 60)">
-        <path d="M0 30 Q-15 0 0 -25 Q15 0 0 30 Z" fill="url(#petal)" stroke="oklch(0.65 0.04 70 / 0.4)" strokeWidth="0.5"/>
-        <path d="M-12 25 Q-22 0 -10 -18 Q-5 5 -12 25 Z" fill="url(#petal)" opacity="0.85"/>
-        <path d="M12 25 Q22 0 10 -18 Q5 5 12 25 Z" fill="url(#petal)" opacity="0.85"/>
-        <path d="M0 30 Q2 60 -5 95" stroke="oklch(0.5 0.07 140 / 0.6)" strokeWidth="1.5" fill="none"/>
+
+      {/* soft watercolor wash backdrop */}
+      <ellipse cx="80" cy="100" rx="95" ry="80" fill="oklch(0.95 0.015 70 / 0.35)" />
+
+      {/* long curved leaves */}
+      <path d="M25 215 Q35 140 95 80 Q70 150 40 215 Z" fill={`url(#leaf-${uid})`} opacity="0.8"/>
+      <path d="M5 195 Q45 110 130 75 Q75 145 18 210 Z" fill={`url(#leaf-${uid})`} opacity="0.55"/>
+      <path d="M55 220 Q75 160 140 130 Q100 180 60 220 Z" fill={`url(#leaf-${uid})`} opacity="0.6"/>
+
+      {/* stems */}
+      <path d="M70 180 Q72 130 65 85" stroke={`url(#stem-${uid})`} strokeWidth="2" fill="none"/>
+      <path d="M125 175 Q130 120 135 70" stroke={`url(#stem-${uid})`} strokeWidth="2" fill="none"/>
+      <path d="M95 200 Q98 150 100 110" stroke={`url(#stem-${uid})`} strokeWidth="1.8" fill="none"/>
+
+      {/* MAIN white tulip — large */}
+      <g transform="translate(70 70)">
+        {/* outer petal back */}
+        <path d="M-22 35 Q-30 -5 -8 -32 Q0 -10 -22 35 Z" fill={`url(#petalShade-${uid})`} />
+        <path d="M22 35 Q30 -5 8 -32 Q0 -10 22 35 Z" fill={`url(#petalShade-${uid})`} />
+        {/* center petal — bright white */}
+        <path d="M0 38 Q-20 0 0 -38 Q20 0 0 38 Z"
+              fill={`url(#petal-${uid})`}
+              stroke="oklch(0.65 0.04 70 / 0.45)" strokeWidth="0.6"/>
+        {/* inner highlight */}
+        <path d="M-2 -28 Q-8 0 -3 30" stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.7"/>
       </g>
-      {/* tulip 2 (smaller) */}
-      <g transform="translate(115 35) scale(0.7)">
-        <path d="M0 25 Q-12 0 0 -20 Q12 0 0 25 Z" fill="url(#petal)" stroke="oklch(0.65 0.04 70 / 0.4)" strokeWidth="0.5"/>
-        <path d="M-10 22 Q-18 0 -8 -15 Q-4 4 -10 22 Z" fill="url(#petal)" opacity="0.85"/>
-        <path d="M10 22 Q18 0 8 -15 Q4 4 10 22 Z" fill="url(#petal)" opacity="0.85"/>
-        <path d="M0 25 Q-3 60 8 100" stroke="oklch(0.5 0.07 140 / 0.6)" strokeWidth="1.5" fill="none"/>
+
+      {/* SECOND white tulip — top right, slightly smaller */}
+      <g transform="translate(135 50) rotate(8) scale(0.85)">
+        <path d="M-20 32 Q-28 -4 -7 -30 Q0 -8 -20 32 Z" fill={`url(#petalShade-${uid})`} />
+        <path d="M20 32 Q28 -4 7 -30 Q0 -8 20 32 Z" fill={`url(#petalShade-${uid})`} />
+        <path d="M0 35 Q-18 0 0 -34 Q18 0 0 35 Z"
+              fill={`url(#petal-${uid})`}
+              stroke="oklch(0.65 0.04 70 / 0.45)" strokeWidth="0.6"/>
+        <path d="M-2 -25 Q-7 0 -2 27" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.65"/>
       </g>
-      {/* tiny gold dots */}
-      <circle cx="40" cy="120" r="2" fill="oklch(0.78 0.12 80 / 0.7)"/>
-      <circle cx="90" cy="140" r="1.5" fill="oklch(0.78 0.12 80 / 0.6)"/>
-      <circle cx="130" cy="80" r="1.5" fill="oklch(0.78 0.12 80 / 0.6)"/>
+
+      {/* THIRD bud — small */}
+      <g transform="translate(105 105) rotate(-12) scale(0.55)">
+        <path d="M0 28 Q-15 0 0 -25 Q15 0 0 28 Z"
+              fill={`url(#petal-${uid})`}
+              stroke="oklch(0.65 0.04 70 / 0.4)" strokeWidth="0.5"/>
+      </g>
+
+      {/* tiny gold accents */}
+      <circle cx="50" cy="155" r="2.2" fill="oklch(0.80 0.13 82)" opacity="0.85"/>
+      <circle cx="115" cy="170" r="1.8" fill="oklch(0.80 0.13 82)" opacity="0.75"/>
+      <circle cx="160" cy="100" r="1.6" fill="oklch(0.80 0.13 82)" opacity="0.7"/>
+      <circle cx="35" cy="120" r="1.3" fill="oklch(0.80 0.13 82)" opacity="0.6"/>
+      <circle cx="155" cy="155" r="1.3" fill="oklch(0.80 0.13 82)" opacity="0.6"/>
     </svg>
   );
 }
