@@ -104,9 +104,9 @@ export function Cards() {
               background: "linear-gradient(135deg, oklch(0.92 0.10 88) 0%, oklch(0.75 0.13 78) 50%, oklch(0.92 0.10 88) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             }}>
-          قاسم & دانة
+          قيس & دانة
         </h1>
-        <p className="text-paper/70 mt-4 font-arabic text-sm sm:text-base leading-loose">
+        <p className="text-paper/70 mt-4 font-arabic text-base sm:text-lg leading-loose">
           بكل الفرح والسرور، يسعدنا دعوتكم لحضور حفل زفافنا<br/>
           ومشاركتنا أجمل لحظات حياتنا
         </p>
@@ -114,6 +114,22 @@ export function Cards() {
 
       <div className="max-w-2xl mx-auto space-y-12">
 
+        {/* CARD 1: Exact uploaded invitation image inside floral paper */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.3, ease: "easeOut" }}
+        >
+          <FloralPaper className="p-4 sm:p-6">
+            <img
+              src="https://i.postimg.cc/3x9B6m5f/Whats-App-Image-2026-05-10-at-8-35-14-PM.jpg"
+              alt="دعوة زفاف قيس و دانة"
+              className="w-full h-auto rounded-sm"
+              style={{ display: "block" }}
+            />
+          </FloralPaper>
+        </motion.div>
         {/* CARD 1: Invitation image */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
