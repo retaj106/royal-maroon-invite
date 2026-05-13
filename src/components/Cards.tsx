@@ -130,49 +130,6 @@ export function Cards() {
             />
           </FloralPaper>
         </motion.div>
-        {/* CARD 1: Invitation image */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.3, ease: "easeOut" }}
-        >
-          <FloralPaper className="aspect-[3/4] sm:aspect-[4/5]">
-            <div className="absolute inset-8 flex flex-col items-center justify-center text-center">
-              <div className="text-gold/80 text-xs tracking-[0.4em] mb-4">دعوة زفاف</div>
-              <div className="font-arabic-display text-3xl sm:text-5xl text-burgundy-deep leading-tight">
-                قاسم
-              </div>
-              <div className="my-4 flex items-center gap-3 text-gold">
-                <span className="h-px w-10 bg-gradient-to-l from-transparent to-gold" />
-                <span className="text-2xl font-serif-lux italic">&</span>
-                <span className="h-px w-10 bg-gradient-to-r from-transparent to-gold" />
-              </div>
-              <div className="font-arabic-display text-3xl sm:text-5xl text-burgundy-deep leading-tight">
-                دانة
-              </div>
-
-              <SectionDivider />
-
-              <p className="font-arabic text-burgundy/80 text-sm sm:text-base leading-loose max-w-xs">
-                يتشرّفان بدعوتكم لحضور حفل زفافهما<br/>
-                لتُشاركوهما أجمل لحظات العمر
-              </p>
-
-              <div className="mt-6 grid grid-cols-2 gap-6 text-center">
-                <div>
-                  <div className="text-[10px] tracking-[0.3em] text-burgundy/50 mb-1">التاريخ</div>
-                  <div className="font-arabic-display text-burgundy-deep">قريبًا</div>
-                </div>
-                <div>
-                  <div className="text-[10px] tracking-[0.3em] text-burgundy/50 mb-1">المكان</div>
-                  <div className="font-arabic-display text-burgundy-deep">قاعة الأفراح</div>
-                </div>
-              </div>
-            </div>
-          </FloralPaper>
-        </motion.div>
-
         {/* CARD 2: No children + map */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
