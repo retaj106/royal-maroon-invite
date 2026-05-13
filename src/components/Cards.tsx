@@ -126,12 +126,7 @@ export function Cards() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div
-      className="min-h-screen w-full pt-24 pb-32 px-4 sm:px-8"
-      style={{
-        background: "linear-gradient(180deg, oklch(0.24 0.10 18) 0%, oklch(0.30 0.11 18) 50%, oklch(0.24 0.10 18) 100%)",
-      }}
-    >
+    <div className="min-h-screen w-full pt-24 pb-32 px-4 sm:px-8 bg-burgundy-damask">
       {/* heading */}
       <motion.div
         className="text-center mb-12 max-w-2xl mx-auto"
