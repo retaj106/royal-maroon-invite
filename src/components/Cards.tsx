@@ -89,15 +89,21 @@ function TulipCorner({ className = "", flip = false }: { className?: string; fli
 function FloralPaper({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className={`relative bg-paper-texture rounded-sm shadow-luxury overflow-hidden ${className}`}
+      className={`relative bg-cream-paper rounded-md shadow-luxury overflow-hidden ${className}`}
       style={{
-        background: "linear-gradient(135deg, oklch(0.98 0.01 75) 0%, oklch(0.95 0.018 70) 100%)",
-        boxShadow: "0 30px 80px -20px oklch(0.24 0.10 18 / 0.35), 0 10px 30px -10px oklch(0.24 0.10 18 / 0.2), inset 0 0 80px oklch(0.92 0.02 60 / 0.5)",
+        boxShadow:
+          "0 30px 80px -20px oklch(0.24 0.10 18 / 0.45), 0 10px 30px -10px oklch(0.24 0.10 18 / 0.25), inset 0 0 100px oklch(0.90 0.025 65 / 0.45)",
       }}
     >
-      {/* inner border */}
-      <div className="absolute inset-3 border border-gold/30 rounded-sm pointer-events-none" />
-      <div className="absolute inset-3 border border-burgundy/10 rounded-sm pointer-events-none" style={{ margin: "3px" }} />
+      {/* double-line gold border */}
+      <div
+        className="absolute inset-2 rounded-md pointer-events-none"
+        style={{ border: "1px solid oklch(0.72 0.10 78 / 0.85)" }}
+      />
+      <div
+        className="absolute inset-3 rounded-md pointer-events-none"
+        style={{ border: "1px solid oklch(0.78 0.11 80 / 0.55)" }}
+      />
 
       {/* tulip corners */}
       <TulipCorner className="absolute -top-4 -right-4 w-44 h-44 sm:w-52 sm:h-52 opacity-95 pointer-events-none" />
